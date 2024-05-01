@@ -1,6 +1,8 @@
 package Mojolicious::Plugin::Data::Transfigure;
 use v5.26;
 
+# ABSTRACT: Mojolicious adapter for Data::Transfigure
+
 use Mojo::Base 'Mojolicious::Plugin';
 
 use Data::Transfigure;
