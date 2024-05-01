@@ -16,7 +16,7 @@ sub register($self, $app, $conf) {
   $app->helper(default_output_transfigurator => sub($c) {$t});
 
   $app->hook(before_render => sub ($c, $args) {
-    my $lt = exists($args->{transfigurator} ? delete($args->{transfigurator}) : $t;
+    my $lt = exists($args->{transfigurator}) ? delete($args->{transfigurator}) : $t;
     foreach my $k (keys($args->%*)) {
       $args->{$k} = $lt->transfigure($args->{$k}) if(defined($lt) && grep { $_ eq $k } @renderers)
     }
